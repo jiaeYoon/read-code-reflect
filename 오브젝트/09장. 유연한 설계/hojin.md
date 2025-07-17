@@ -17,13 +17,13 @@
 
 앞서 우리는 영화 예매 시스템에서 의존성 설계를 수행한 바 있다.
 
-![image.png](attachment:e70a69ee-7c99-499e-b435-89c6f80852b3:image.png)
+<img width="965" height="293" alt="컴파일타임 - 런타임 의존성 차이" src="https://github.com/user-attachments/assets/75d7865b-e575-4a10-9cfd-76de0af204da" />
 
 Movie에서 구현체에 의존하는 것이 아닌 추상체에 의존하여 컴파일/런타임 의존성이 다름을 알 수 있다.
 
 이는 기존 코드 수정없이 기능을 추가하는 것을 돕는데, NonDiscountPolicy 정책을 추가할 때, 단순히 구현체 클래스를 추가함으로써 이를 달성한 바 있다.
 
-![image.png](attachment:d6c19847-899a-418b-8096-5f44fe65376b:image.png)
+<img width="1006" height="303" alt="수정에 닫혀있는 구조" src="https://github.com/user-attachments/assets/c7dcce5d-81a1-48ec-8ff5-955225b31315" />
 
 의존성 관점에서 개방-폐쇄 원칙을 따르는 설계란,
 
@@ -41,7 +41,7 @@ Movie에서 구현체에 의존하는 것이 아닌 추상체에 의존하여 �
 
 추상화 뿐 아니라 변경에 닫혀 있기 위해서는 **의존성의 방향 또한 매우 중요**하다.
 
-![image.png](attachment:20e80b19-6900-4517-84cb-1bb171521d6e:image.png)
+<img width="913" height="132" alt="Movie가 추상체에 의존" src="https://github.com/user-attachments/assets/db7b592b-9dfd-40ef-b1aa-6ee11132fe85" />
 
 클라이언트에서 **추상체에 의존하는 방향으로 설계**해야 비로소 변경에 닫혀 있을 여지가 생긴다.
 
@@ -72,13 +72,13 @@ public class Movie {
 
 동일한 클래스 안에서 객체 **사용과 사용이라는 두 목적의 코드가 공존**한다.
 
-![image.png](attachment:5fff3c56-9c03-4dd4-91f0-f6fae4b81352:image.png)
+<img width="958" height="262" alt="객체 사용 생성 두 책임 상태" src="https://github.com/user-attachments/assets/2ef047f6-6f3a-4bf9-ba30-3d8a48737822" />
 
 유연한 객체 설계를 위해 객체 생성과 사용 목적의 코드를 분리해야한다.
 
 가장 보편적인 방법은 **클라이언트에게 객체를 생성할 책임을 옮기는 것**이다.
 
-![image.png](attachment:66ab9254-feb0-4947-bb3a-481157cefb79:image.png)
+<img width="970" height="276" alt="클라이언트에 객체 생성 책임할당" src="https://github.com/user-attachments/assets/6370aef5-6036-4d3c-b925-0190bb1a30a8" />
 
 그림 9.4와 달리, 구체 인스턴스를 생성하는 책임을 클라이언트에게 맡김으로써 컨텍스트에 관한 정보를 클라이언트에 옮겼다.
 
@@ -92,7 +92,7 @@ public class Movie {
 
 이렇게 **객체 생성에 특화된 객체를 FACTORY**라고 부른다.
 
-![image.png](attachment:0f33d32a-803c-4ba0-8cc4-2aef777eee47:image.png)
+<img width="920" height="256" alt="Factory 추가후 의존성" src="https://github.com/user-attachments/assets/093ae758-7689-4964-9864-333b767f9142" />
 
 객체 생성의 책임을 FACTORY로 위임함으로써, 클라이언트는 객체 생성에 대한 어떤 지식도 가지지 않을 수 있다.
 
@@ -180,7 +180,7 @@ Movie avatar = new Movie("아바타", Duration.ofMinutes(120), Money.wons(10000)
 
 상위 수준의 클래스가 하위 수준의 클래스에 의존하는 경우 변경에 취약하게 된다.
 
-![image.png](attachment:7ec388d7-4204-4199-bd07-90b59d8f2826:image.png)
+<img width="980" height="132" alt="의존성의 방향 - 구현체에 의존" src="https://github.com/user-attachments/assets/d9368ff8-09b2-4af9-a89c-880b1891f74f" />
 
 협력에서 중요한 정책이나 의사결정, 비즈니스의 본질을 담고 있는 것은 상위 수준의 클래스이다.
 
@@ -192,7 +192,7 @@ Movie avatar = new Movie("아바타", Duration.ofMinutes(120), Money.wons(10000)
 
 상위 클래스가 하위 클래스를 바라보지 않도록 충분히 추상화된 클래스에 의존하도록 해야한다.
 
-![image.png](attachment:434e13c5-5265-4591-af0f-64fecc5d2b7d:image.png)
+<img width="973" height="272" alt="의존성의 방향 - 추상화에 의존" src="https://github.com/user-attachments/assets/377bc259-c8d9-4ccb-9fcc-3d5dccf88e21" />
 
 지금까지 살펴본 내용을 정리해보자.
 
@@ -207,7 +207,7 @@ Movie avatar = new Movie("아바타", Duration.ofMinutes(120), Money.wons(10000)
 
 객체지향 프로그래밍 언어에서 어떤 구성 요소의 소유권을 결정하는 것은 모듈이다.
 
-![image.png](attachment:46383da9-97b1-4a58-a9aa-53f300e6bf57:image.png)
+<img width="1053" height="427" alt="인터페이스가 서버 모듈에 존재" src="https://github.com/user-attachments/assets/db1b81f8-5040-41a6-a148-9a651d2ea1f5" />
 
 위 예시는 Movie가 DiscountPolicy에 의존하고 있지만, 인터페이스(DiscountPolicy)가 서버 모듈에 위치하고 있다.
 
@@ -215,7 +215,7 @@ Movie avatar = new Movie("아바타", Duration.ofMinutes(120), Money.wons(10000)
 
 DiscountPolicy에 변경사항이 없다면 Movie 클래스 또한 영향을 받지 않아야 하지만, Movie가 인터페이스 패키지에 의존하고 있어 재컴파일이 발생한다.
 
-![image.png](attachment:b34caa26-891d-46d4-a6ba-e96d4413f783:image.png)
+<img width="1086" height="410" alt="인터페이스가 클라이언트에 같이 위치" src="https://github.com/user-attachments/assets/aaa7556e-02fe-4a45-b03c-909575a9d790" />
 
 이를 극복하기 위해 추상화를 클라이언트가 속한 패키지에 포함시켜야 한다.
 
